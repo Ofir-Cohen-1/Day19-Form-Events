@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const scoreDisplay = document.querySelector("#score");
   const startBtn = document.querySelector("#start-button");
   const width = 10;
+
   let nextRandom = 0;
   let timerId;
   let score = 0;
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  draw();
+  // draw();
 
   // undraw the Tetromino
   function undraw() {
@@ -80,13 +81,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //assign functions to keycodes
   function control(e) {
-    if (e.keyCode === 37) moveLeft();
-    else if (e.keyCode === 38) rotate();
-    else if (e.keyCode === 39) moveRight();
-    else if (e.keyCode === 40) moveDown();
+    if (e.keyCode === 37) {
+      moveLeft();
+    } else if (e.keyCode === 38) {
+      rotate();
+    } else if (e.keyCode === 39) {
+      moveRight();
+    } else if (e.keyCode === 40) {
+      moveDown();
+    }
   }
 
-  document.addEventListener("keydown", control);
+  document.addEventListener("keyup", control);
 
   // move down function
   function moveDown() {
